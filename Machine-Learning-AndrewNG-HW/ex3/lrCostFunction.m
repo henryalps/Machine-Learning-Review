@@ -44,7 +44,7 @@ temp = theta;
 temp(1) = 0;
 
 J = -(y'*log(h)+(1-y)'*log(1-h))/m + lambda*sum(temp.^2)/2/m;
-grad = X' * (h - y) / m + lambda * sum(temp) / m;
+grad = X' * (h - y) / m + lambda * temp / m;
 
 
 
