@@ -62,15 +62,53 @@ Theta2_grad = zeros(size(Theta2));
 %               and Theta2_grad from Part 2.
 %
 
+% Part 1
+x = [ones(m,1) X];
+h1 = sigmoid(Theta1 * x');
+
+x = [ones(m,1) h1'];
+h2 = sigmoid(Theta2 * x');
+h2 = h2'; % m * num_labels
+
+onehot = zeros(m, num_labels);
+e = eye(num_labels);
+for i = 1:m
+    onehot(i,:) = e(y(i),:);
+end
+
+J = onehot.*log(h2) + (1 - onehot).*log(1-h2);
+J = -sum(sum(J))/m;
+
+% regulazation
+J = J + lambda * (sum(sum(Theta2(:,2:end).^2))+ sum(sum(Theta1(:,2:end).^2))) / m / 2;
+
+% Part 2
+idx_arr = [1:1:num_labels]';
+for t = 1:m
+    a_1 = [1 X(t,:)]; % 1*4
+    z_2 = Theta1 * a_1'; 
+    a_2 = sigmoid(z_2); %1*6
+    a_2 = [1; a_2];
+    z_3 = Theta2 * a_2; % 3*1
+    a_3 = sigmoid(z_3); % 3*1
+
+    y_t = idx_arr==y(t); 
+    delta_3 = a_3 - y_t; % 3*1
+    delta_2 = Theta2' * delta_3 .* [1; sigmoidGradient(z_2)]; % 6*1
+    delta_2 = delta_2(2:end); % 5*1
+
+    Theta1_grad = Theta1_grad + delta_2 * a_1;
+    Theta2_grad = Theta2_grad + delta_3 * a_2';
+end
+Theta1_grad = Theta1_grad / m;
+Theta2_grad = Theta2_grad / m;
 
 
-
-
-
-
-
-
-
+% part 3
+Theta1(:,1) = 0;
+Theta2(:,1) = 0;
+Theta1_grad = Theta1_grad + lambda * Theta1 / m;
+Theta2_grad = Theta2_grad + lambda * Theta2 / m;
 
 
 
