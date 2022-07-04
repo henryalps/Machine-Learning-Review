@@ -4,13 +4,26 @@ Review of machine learning related ideas.
 
 ----
 
-## 🔥Machine-Learning-AndrewNG-HW
+## 🔥Machine-Learning-AndrewNG-2012
 
-Includes all finished MATLAB homeworks of Andrew NG's [Machining Learning course](https://www.coursera.org/learn/machine-learning-course)(_old_2016_version_) on coursera. Registration for this course is closed on June 14, 2022.
+Includes all finished MATLAB homeworks of Andrew NG's [Machining Learning course](https://www.coursera.org/learn/machine-learning-course)(_old_2012_version_) on coursera. Registration for this course is closed on June 14, 2022.
 
 Unlike many existing solutions which include `.m` file only, this code repo is done with MATLAB `.mlx` notebook files, which are the same as the latest version available on the course website.
 
-#### The MIT License (MIT)
+## 🤗Machine-Learning-AndrewNG-2022
+
+The [Machine Learning Specialization](https://www.coursera.org/specializations/machine-learning-introduction) is a foundational online program created in collaboration between DeepLearning.AI and Stanford Online. 
+
+This folder includes all programming JUPYTER homeworks from the three subcourses:
+
+- Supervised Machine Learning: Regression and Classification
+- Advanced Learning Algorithms
+- Unsupervised Learning, Recommenders, Reinforcement Learning
+
+
+#### Liscense
+
+**The MIT License (MIT)**
 
 ```
 Copyright (c) 2015 Adam Porter
